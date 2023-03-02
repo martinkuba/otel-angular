@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Inject } from '@angular/core';
+import { MY_REST_API_HTTP_CLIENT } from 'src/httpclients';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +12,7 @@ import { HttpClient } from '@angular/common/http';
 export class AppComponent {
   title = 'angular-test';
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(@Inject(MY_REST_API_HTTP_CLIENT) private httpClient: HttpClient) {}
 
   onMakeHttpCall() {
     const url = 'https://httpbin.org/get';
